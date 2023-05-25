@@ -1,30 +1,23 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Grid,
   GridItem,
   Box,
-  Card,
-  CardBody,
-  Image,
-  Text,
-  CardFooter,
-  Stack,
+  Button,
   Heading,
   Divider,
-  ButtonGroup,
-  Button,
-  Container,
-  HStack,
-  background,
-  Skeleton,
-  SkeletonCircle,
-  SkeletonText,
+  Select,
 } from "@chakra-ui/react";
 
 import { getData } from "../Redux/action";
 import { useDispatch, useSelector } from "react-redux";
+import ProductSkeleton from "./ProductSkeleton";
+import ProductCard from "./ProductCard";
 
 export default function Products() {
+  const [filterValue, setFilterValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
+
   const dispatch = useDispatch();
   const items = useSelector((store) => {
     return store.products;
@@ -35,22 +28,45 @@ export default function Products() {
 
   useEffect(() => {
     let interval = setTimeout(() => {
-      dispatch(getData());
+      dispatch(getData(filterValue, sortValue));
     }, 1000);
     clearInterval = interval;
-  }, []);
+  }, [filterValue, sortValue]);
+
+  const handleSort = (e) => {
+    setSortValue(e.target.value);
+    console.log(e.target.value);
+  };
 
   return (
     <Box>
-      <Grid h="100vh" templateColumns="15% 1fr">
-        <GridItem bg="red">
-          <Text>Filter</Text>
+      <Grid h="100vh" templateColumns={{ base: "1fr", md: "20% 80%" }}>
+        <GridItem
+          position={{ md: "fixed" }}
+          p="20px"
+          w={{ base: "100%", md: "20%" }}
+        >
+          <Heading fontSize="24px" p="0 0 10px 0">
+            Sort by price
+          </Heading>
+          <Select placeholder="Sort by Price" onChange={handleSort}>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </Select>
+
+          <Heading fontSize="24px" p="10px 0">
+            Filter
+          </Heading>
           <Button
             w="100%"
             m="2px"
             box-sizing="border-box"
             colorScheme="blue"
-            size={{ base: "sm", md: "md" }}
+            size={{ base: "xs", md: "md" }}
+            fontSize={{ base: "xs", md: "sm", lg: "md" }}
+            onClick={() => {
+              setFilterValue("car");
+            }}
           >
             Checkout our Cars
           </Button>
@@ -59,7 +75,11 @@ export default function Products() {
             m="2px"
             box-sizing="border-box"
             colorScheme="blue"
-            size={{ base: "sm", md: "md" }}
+            size={{ base: "xs", md: "md" }}
+            fontSize={{ base: "xs", md: "sm", lg: "md" }}
+            onClick={() => {
+              setFilterValue("SUV");
+            }}
           >
             Checkout our SUVs
           </Button>
@@ -68,7 +88,11 @@ export default function Products() {
             m="2px"
             box-sizing="border-box"
             colorScheme="blue"
-            size={{ base: "sm", md: "md" }}
+            size={{ base: "xs", md: "sm" }}
+            fontSize={{ base: "xs", md: "sm", lg: "md" }}
+            onClick={() => {
+              setFilterValue("truck");
+            }}
           >
             Checkout our Pick-up Trucks
           </Button>
@@ -77,12 +101,33 @@ export default function Products() {
             m="2px"
             box-sizing="border-box"
             colorScheme="blue"
-            size={{ base: "sm", md: "md" }}
+            size={{ base: "xs", md: "sm", lg: "md" }}
+            onClick={() => {
+              setFilterValue("bus");
+            }}
           >
-            Checkout our Pick-up Buses
+            Checkout our Buses
+          </Button>
+          <Button
+            w="100%"
+            m="2px"
+            box-sizing="border-box"
+            colorScheme="blue"
+            size={{ base: "xs", md: "sm", lg: "md" }}
+            onClick={() => {
+              setFilterValue("all");
+            }}
+          >
+            Checkout all our Vehicles
           </Button>
         </GridItem>
-        <GridItem m="20px">
+
+        <GridItem
+          w="80%"
+          p="20px"
+          m={{ base: "130px 0 0 0", md: "0 0 0 20%" }}
+          position="absolute"
+        >
           <Grid
             templateColumns={{
               base: "1fr 1fr",
@@ -92,202 +137,18 @@ export default function Products() {
             gap={{ base: "5px", md: "10px" }}
           >
             {isLoading ? (
-              <>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-                <GridItem>
-                  <Card padding="6" boxShadow="lg" bg="white">
-                    <Skeleton height="200px" fadeDuration={1} />
-                    <SkeletonText
-                      mt="4"
-                      noOfLines={4}
-                      spacing="2"
-                      skeletonHeight="2"
-                    />
-                    <Skeleton height="40px" fadeDuration={1} />
-                  </Card>
-                </GridItem>
-              </>
+              <ProductSkeleton />
             ) : (
-              items.map((e) => {
+              items?.map((e) => {
                 return (
-                  <Card boxShadow="0 0 8px black">
-                    <CardBody overflow="hidden">
-                      <Card overflow="hidden" p="0 0 10px 0">
-                        <Image
-                          w="100%"
-                          h="250px"
-                          margin="-40px -10px"
-                          src={e.image}
-                        />
-
-                        <Heading
-                          fontSize={{ base: "16px", md: "18px", lg: "24px" }}
-                        >
-                          {e.name}
-                        </Heading>
-                      </Card>
-
-                      <Stack spacing="2px" textAlign="left">
-                        <Text
-                          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
-                        >
-                          Transmission: {e.Transmission}
-                        </Text>
-                        <HStack>
-                          {e.rating === "4" ? (
-                            <>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <span>{e.rating}</span>
-                            </>
-                          ) : (
-                            <>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <i
-                                class="fa-solid fa-star-half"
-                                style={{ color: "#4169e1" }}
-                              ></i>
-                              <span> {e.rating}</span>
-                            </>
-                          )}
-                        </HStack>
-                        <Text
-                          fontSize={{ base: "12px", md: "14px", lg: "16px" }}
-                        >
-                          {e.price} Per day
-                        </Text>
-                      </Stack>
-                    </CardBody>
-                    <Divider />
-                    <CardFooter>
-                      <ButtonGroup w="100%" alignItems="center">
-                        <Button
-                          w="100%"
-                          box-sizing="border-box"
-                          colorScheme="blue"
-                          size={{ base: "sm", md: "md" }}
-                        >
-                          Buy Now
-                        </Button>
-                        <i
-                          class="fa-regular fa-heart fa-2x"
-                          style={{ color: "#4169e1" }}
-                        ></i>
-                      </ButtonGroup>
-                    </CardFooter>
-                  </Card>
+                  <ProductCard
+                    item={e}
+                    name={e.name}
+                    image={e.image}
+                    Transmission={e.Transmission}
+                    rating={e.rating}
+                    price={e.price}
+                  />
                 );
               })
             )}
