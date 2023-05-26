@@ -19,16 +19,21 @@ import {
 } from "@chakra-ui/react";
 import { FcLike } from "react-icons/fc";
 import axios from "axios";
+import { useDispatch } from "react-redux";
+import { ADD_PRODUCT_DETAILS } from "../Redux/actionType";
 
 export default function ({ item, name, image, Transmission, rating, price }) {
   const [iconClick, setIconClick] = useState(false);
 
+  const dispatch = useDispatch();
+
   const handleClick = () => {
     setIconClick(!iconClick);
-    // if (iconClick) {
-    axios
-      .post(`https://vehiches-data.onrender.com/cart`, item)
-      .then((res) => console.log("added"));
+    if (iconClick) {
+      axios
+        .post(`https://vehiches-data.onrender.com/cart`, item)
+        .then((res) => console.log("added"));
+    }
   };
 
   return (
@@ -82,25 +87,22 @@ export default function ({ item, name, image, Transmission, rating, price }) {
             box-sizing="border-box"
             colorScheme="blue"
             size={{ base: "sm", md: "md" }}
+            onClick={() => {
+              dispatch({
+                type: ADD_PRODUCT_DETAILS,
+                payload: item,
+              });
+            }}
           >
             Buy Now
           </Button>
 
           {iconClick ? (
-            <FcLike
-              size="50px"
-              // onClick={() => {
-              //   handleClick(id);
-              // }}
-              onClick={handleClick}
-            />
+            <FcLike size="50px" onClick={handleClick} />
           ) : (
             <i
               class="fa-regular fa-heart fa-2x"
               style={{ color: "#4169e1" }}
-              // onClick={() => {
-              //   handleClick(id);
-              // }}
               onClick={handleClick}
             ></i>
           )}

@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       <ChakraProvider>
-        {/* <Products /> */}
-        <ProductDetails />
+        <Products />
+        {/* <ProductDetails /> */}
       </ChakraProvider>
     </div>
   );

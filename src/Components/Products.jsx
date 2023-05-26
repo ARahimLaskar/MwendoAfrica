@@ -29,7 +29,7 @@ export default function Products() {
   useEffect(() => {
     let interval = setTimeout(() => {
       dispatch(getData(filterValue, sortValue));
-    }, 1000);
+    }, 100);
     clearInterval = interval;
   }, [filterValue, sortValue]);
 
