@@ -21,23 +21,40 @@ import { FcLike } from "react-icons/fc";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ADD_PRODUCT_DETAILS } from "../Redux/actionType";
-
-export default function ({ item, name, image, Transmission, rating, price }) {
+import "./productCard.css";
+import { useNavigate } from "react-router-dom";
+export default function ({
+  item,
+  id,
+  name,
+  image,
+  Transmission,
+  rating,
+  price,
+}) {
   const [iconClick, setIconClick] = useState(false);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const handleClick = () => {
+  const handleClick = (value) => {
     setIconClick(!iconClick);
-    if (iconClick) {
+    if (value === true) {
       axios
         .post(`https://vehiches-data.onrender.com/cart`, item)
-        .then((res) => console.log("added"));
+        .then((res) => console.log("updated"))
+        .catch((err) => {
+          axios.put(`https://vehiches-data.onrender.com/cart/${id}`);
+        });
+    } else if (value === false) {
+      axios
+        .delete(`https://vehiches-data.onrender.com/cart/${id}`)
+        .then((res) => console.log("deleted"));
     }
   };
 
   return (
-    <Card boxShadow="0 0 8px black">
+    <Card boxShadow="0 0 4px #9bedff" className="productDiv">
       <CardBody overflow="hidden">
         <Card overflow="hidden" p="0 0 10px 0">
           <Image w="100%" h="250px" margin="-40px -10px" src={image} />
@@ -92,18 +109,26 @@ export default function ({ item, name, image, Transmission, rating, price }) {
                 type: ADD_PRODUCT_DETAILS,
                 payload: item,
               });
+              navigate("/productDetail");
             }}
           >
             Buy Now
           </Button>
 
           {iconClick ? (
-            <FcLike size="50px" onClick={handleClick} />
+            <FcLike
+              size="50px"
+              onClick={() => {
+                handleClick(false);
+              }}
+            />
           ) : (
             <i
               class="fa-regular fa-heart fa-2x"
               style={{ color: "#4169e1" }}
-              onClick={handleClick}
+              onClick={() => {
+                handleClick(true);
+              }}
             ></i>
           )}
         </ButtonGroup>

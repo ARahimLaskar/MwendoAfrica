@@ -20,6 +20,7 @@ import {
   Stack,
   HStack,
   VStack,
+  Select,
 } from "@chakra-ui/react";
 import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
@@ -52,7 +53,6 @@ export default function ProductDetails() {
   });
 
   let totalPrice = numberOfDays * itemDetails.price;
-  console.log(totalPrice);
 
   return (
     <Box w="80%" m="0 auto" boxShadow=" rgba(99, 99, 99, 0.2) 0px 2px 8px 0px">
@@ -62,6 +62,22 @@ export default function ProductDetails() {
             <Heading marginBottom="40px" size="30px">
               Select Date & Time
             </Heading>
+            <FormLabel>Pick up Place</FormLabel>
+            <Select placeholder="Select option">
+              <option value="option1">Banglore</option>
+              <option value="option2">Mumbai</option>
+              <option value="option3">Delhi</option>
+              <option value="option3">Chennai</option>
+              <option value="option3">Kolkata</option>
+            </Select>
+            <FormLabel>Drope off Place</FormLabel>
+            <Select placeholder="Select option">
+              <option value="option1">Kolkata</option>
+              <option value="option2">Chennai</option>
+              <option value="option3">Delhi</option>
+              <option value="option3">Mumbai</option>
+              <option value="option3">Banglore</option>
+            </Select>
             <FormLabel>Pick up Date & Time</FormLabel>
             <Input
               marginBottom="20px"
@@ -106,6 +122,32 @@ export default function ProductDetails() {
               src={itemDetails.image}
               alt={itemDetails.name}
             />
+            <Stack m="20px">
+              <Image
+                border="1px solid #9bedff"
+                w="100px"
+                h="100px"
+                src={itemDetails.img1}
+              />
+              <Image
+                border="1px solid #9bedff"
+                w="100px"
+                h="100px"
+                src={itemDetails.img2}
+              />
+              <Image
+                border="1px solid #9bedff"
+                w="100px"
+                h="100px"
+                src={itemDetails.img3}
+              />
+              <Image
+                border="1px solid #9bedff"
+                w="100px"
+                h="100px"
+                src={itemDetails.img4}
+              />
+            </Stack>
 
             <Stack>
               <CardBody textAlign="left" lineHeight="30px">
@@ -157,7 +199,10 @@ export default function ProductDetails() {
                     </>
                   )}
                 </HStack>
-                <Text fontSize={{ base: "12px", md: "14px", lg: "16px" }}>
+                <Text
+                  marginBottom="10px"
+                  fontSize={{ base: "12px", md: "14px", lg: "16px" }}
+                >
                   ₹ {itemDetails.price} Per day
                 </Text>
                 <Text>Type: {itemDetails.type}</Text>
