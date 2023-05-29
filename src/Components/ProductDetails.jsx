@@ -26,11 +26,14 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FcCurrencyExchange, FcOvertime } from "react-icons/fc";
+import Payment from "./Payment";
+import { useNavigate } from "react-router-dom";
 
 export default function ProductDetails() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [numberOfDays, setNumberOfDays] = useState(0);
+  const navigate = useNavigate();
 
   const calculateDays = () => {
     const startDateTime = new Date(startDate).getTime();
@@ -218,6 +221,9 @@ export default function ProductDetails() {
                   rightIcon={<ArrowForwardIcon />}
                   colorScheme="blue"
                   hover="blue"
+                  onClick={() => {
+                    navigate("/payment");
+                  }}
                 >
                   Proceed for Payment
                 </Button>
