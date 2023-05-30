@@ -6,6 +6,7 @@ import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./Redux/store";
 import { BrowserRouter } from "react-router-dom";
+<<<<<<< HEAD
 import { Auth0Provider } from "@auth0/auth0-react";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -21,6 +22,18 @@ root.render(
         <App />
       </Auth0Provider>
     </BrowserRouter>
+=======
+import { ChakraProvider } from "@chakra-ui/react";
+import "bootstrap/dist/css/bootstrap.min.css";
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(
+  <Provider store={store}>
+    <ChakraProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </ChakraProvider>
+>>>>>>> f0590f0e1cd97e04bc583d096b5026208b9fde4a
   </Provider>
 );
 
