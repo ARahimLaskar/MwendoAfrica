@@ -3,6 +3,7 @@ import "./App.css";
 import Products from "./Components/Products";
 import { ChakraProvider } from "@chakra-ui/react";
 import ProductDetails from "./Components/ProductDetails";
+import Payment from "./Components/Payment";
 import AllRoutes from "./All Routes/AllRoutes";
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         {/* <Products /> */}
         {/* <ProductDetails /> */}
         <AllRoutes />
+        {/* <Payment /> */}
       </ChakraProvider>
     </div>
   );
