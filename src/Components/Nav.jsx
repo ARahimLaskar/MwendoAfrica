@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
-import "./navbar.css";
+import { Link } from "react-router-dom";
+import "./nav.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+
 function Navbar() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
@@ -24,16 +26,16 @@ function Navbar() {
         >
           <ul>
             <li>
-              <a href="#">Home</a>
+              <Link to="#">Home</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link to="#">About</Link>
             </li>
             <li>
-              <a href="#">Resources</a>
+              <Link to="#">Resources</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link to="#">Contact</Link>
             </li>
           </ul>
         </div>
@@ -57,9 +59,9 @@ function Navbar() {
           )}
         </div>
         <div>
-          <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+          <Link to="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
             <GiHamburgerMenu />
-          </a>
+          </Link>
         </div>
       </nav>
     </>
