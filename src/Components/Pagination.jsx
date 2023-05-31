@@ -31,7 +31,7 @@ export default function Pagination({ pageNo, setPageno }) {
           setPageno(2);
         }}
       >
-        <HStack display="flex" justifyContent="center" alignItems="center">
+        <HStack>
           <Text>Next</Text>
           <FcNext size="20px" />
         </HStack>

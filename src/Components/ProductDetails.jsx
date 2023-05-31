@@ -26,13 +26,13 @@ import { ArrowForwardIcon } from "@chakra-ui/icons";
 import { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { FcCurrencyExchange, FcOvertime } from "react-icons/fc";
-import Payment from "./Payment";
 import { useNavigate } from "react-router-dom";
 
 export default function ProductDetails() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const [numberOfDays, setNumberOfDays] = useState(0);
+
   const navigate = useNavigate();
 
   const calculateDays = () => {
@@ -45,6 +45,7 @@ export default function ProductDetails() {
       const numberOfDays = Math.round(timeDifference / millisecondsPerDay);
 
       setNumberOfDays(numberOfDays);
+      window.localStorage.setItem("No_days", numberOfDays);
     }
   };
   useEffect(() => {
@@ -56,12 +57,13 @@ export default function ProductDetails() {
   });
 
   let totalPrice = numberOfDays * itemDetails.price;
+  window.localStorage.setItem("Price", totalPrice);
 
   return (
     <Box w="80%" m="0 auto" boxShadow=" rgba(99, 99, 99, 0.2) 0px 2px 8px 0px">
       <Grid w="100%" templateColumns="25% 1fr" gap="5%" p="10px">
         <GridItem p="20px" boxShadow=" rgba(0, 0, 0, 0.24) 0px 3px 8px">
-          <FormControl>
+          <FormControl isRequired>
             <Heading marginBottom="40px" size="30px">
               Select Date & Time
             </Heading>
