@@ -1,5 +1,6 @@
 import { Box, Divider, Text, Link, HStack, Stack } from "@chakra-ui/react";
 import MwendoLogo from "../Images/logo.jpeg";
+
 import MwendoLogo2 from "../Images/logo2.png";
 function Footer({ links }) {
   return (
