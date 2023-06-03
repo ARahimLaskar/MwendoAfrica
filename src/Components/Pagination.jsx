@@ -32,7 +32,7 @@ export default function Pagination({ pageNo, setPageno }) {
         }}
       >
         <HStack>
-          <Text>Next</Text>
+          <Text marginBottom="0px">Next</Text>
           <FcNext size="20px" />
         </HStack>
       </Button>

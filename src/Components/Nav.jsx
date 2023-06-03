@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import "./navbar.css";
 import { GiHamburgerMenu } from "react-icons/gi";
+import { Link } from "react-router-dom";
+import { Flex, Spacer } from "@chakra-ui/react";
 function Navbar() {
   const { loginWithRedirect, logout, isAuthenticated, user, isLoading } =
     useAuth0();
@@ -24,42 +26,44 @@ function Navbar() {
         >
           <ul>
             <li>
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link to="">About</Link>
             </li>
             <li>
-              <a href="#">Resources</a>
+              <Link to="/products">Products</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link>Contact</Link>
             </li>
           </ul>
         </div>
         <div className="Login-btn">
-          <span>{isAuthenticated && user && <p>{user.name}</p>}</span>
-          {isAuthenticated ? (
-            <li>
-              <button
-                id="sign-up"
-                onClick={() => logout({ returnTo: window.location.origin })}
-              >
-                Log Out
-              </button>
-            </li>
-          ) : (
-            <li>
-              <button id="login" onClick={() => loginWithRedirect()}>
-                Log In
-              </button>
-            </li>
-          )}
+          <Flex>
+            <span>{isAuthenticated && user && <p>{user.name}</p>}</span>
+            {isAuthenticated ? (
+              <li>
+                <button
+                  id="sign-up"
+                  onClick={() => logout({ returnTo: window.location.origin })}
+                >
+                  Log Out
+                </button>
+              </li>
+            ) : (
+              <li>
+                <button id="login" onClick={() => loginWithRedirect()}>
+                  Log In
+                </button>
+              </li>
+            )}
+          </Flex>
         </div>
         <div>
-          <a href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
+          <Link href="#" onClick={() => setShowMediaIcons(!showMediaIcons)}>
             <GiHamburgerMenu />
-          </a>
+          </Link>
         </div>
       </nav>
     </>

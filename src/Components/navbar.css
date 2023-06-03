@@ -63,12 +63,12 @@ li {
   grid-column: 4/5;
   justify-self: center;
   align-self: center;
-  font-size: 20px;
+  font-size: 16px;
   text-transform: capitalize;
   justify-content: space-around;
 }
 #login {
-  height: 50px;
+  height: 40px;
   width: 100px;
   border-radius: 25px;
   background-color: transparent;
@@ -80,7 +80,7 @@ li {
   background-color: rgba(65, 105, 226, 0.1);
 }
 #sign-up {
-  height: 50px;
+  height: 40px;
   width: 100px;
   border-radius: 25px;
   background-color: rgb(65, 105, 226);

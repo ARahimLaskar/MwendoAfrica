@@ -92,7 +92,11 @@ export default function Payment() {
     });
   };
   return (
-    <Container maxW="xl" boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px">
+    <Container
+      m="50px auto"
+      maxW="xl"
+      boxShadow="rgba(0, 0, 0, 0.35) 0px 5px 15px"
+    >
       <form onSubmit={handleSubmit}>
         <FormControl p="10px" isRequired>
           <Grid templateColumns="repeat(2, 1fr)" gap="20px">
@@ -168,12 +172,12 @@ export default function Payment() {
               <Heading size="md" m="20px 0">
                 PAYMENT FORM
               </Heading>
-              <VStack display="flex" alignItems="flex-start" lineHeight="14px">
+              <VStack display="flex" alignItems="flex-start" lineHeight="11px">
                 <Text marginBottom="0px">Cost : {price} </Text>
                 <Text>GST : 18% </Text>
                 <Text>Total Cost : {totalCost}</Text>
               </VStack>
-              <Divider m="10px" />
+              <Divider m="6px" />
               <FormLabel>Cards Accepted</FormLabel>
               <HStack
                 display="flex"

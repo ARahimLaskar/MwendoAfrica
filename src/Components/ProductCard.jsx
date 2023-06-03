@@ -21,7 +21,7 @@ import { FcLike } from "react-icons/fc";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { ADD_PRODUCT_DETAILS } from "../Redux/actionType";
-import "./productCard.css";
+import "./productCard_carousel.css";
 import { useNavigate } from "react-router-dom";
 export default function ({
   item,

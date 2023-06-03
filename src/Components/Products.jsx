@@ -17,6 +17,8 @@ import { useDispatch, useSelector } from "react-redux";
 import ProductSkeleton from "./ProductSkeleton";
 import ProductCard from "./ProductCard";
 import Pagination from "./Pagination";
+import Navbar from "./Nav";
+import Footer from "./Footer";
 
 export default function Products() {
   const [filterValue, setFilterValue] = useState("");
@@ -32,10 +34,7 @@ export default function Products() {
   });
 
   useEffect(() => {
-    let interval = setTimeout(() => {
-      dispatch(getData(filterValue, sortValue, pageNo));
-    }, 100);
-    clearInterval = interval;
+    dispatch(getData(filterValue, sortValue, pageNo));
   }, [filterValue, sortValue, pageNo]);
 
   const handleSort = (e) => {
@@ -45,7 +44,7 @@ export default function Products() {
 
   return (
     <>
-      <Box>
+      <Box p="0 50px" h="1300px">
         <Grid templateColumns={{ base: "1fr", md: "20% 80%" }}>
           <GridItem
             position={{ md: "fixed" }}
@@ -138,7 +137,7 @@ export default function Products() {
           </GridItem>
 
           <GridItem
-            w="80%"
+            w="70%"
             p="20px"
             m={{ base: "130px 0 0 0", md: "0 0 0 20%" }}
             position="absolute"

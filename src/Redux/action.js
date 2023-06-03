@@ -47,3 +47,24 @@ export const getData = (filterValue, sortValue, pageNo) => {
       });
   };
 };
+
+export const getCarData = () => {
+  return function (dispatch, getState) {
+    dispatch({
+      type: GET_PRODUCTS_REQUEST,
+    });
+    axios
+      .get(`https://vehiches-data.onrender.com/vehicles?_limit=3&type=car`)
+      .then((res) => {
+        dispatch({
+          type: GET_PRODUCTS_SUCCESS,
+          payload: res.data,
+        });
+      })
+      .catch((err) => {
+        dispatch({
+          type: GET_PRODUCTS_FAILURE,
+        });
+      });
+  };
+};

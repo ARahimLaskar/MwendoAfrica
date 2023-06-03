@@ -2,16 +2,75 @@ import { Box, Divider, Text, Link, HStack, Stack } from "@chakra-ui/react";
 import MwendoLogo from "../Images/logo.jpeg";
 
 import MwendoLogo2 from "../Images/logo2.png";
-function Footer({ links }) {
+function Footer() {
+  const links = {
+    quickLinks: [
+      { text: "Features", href: "#" },
+      {
+        text: "Pricing",
+        href: "#",
+      },
+      { text: "Case Studies", href: "#" },
+      {
+        text: "Reviews",
+        href: "#",
+      },
+      { text: "Updates", href: "#" },
+    ],
+    supportLinks: [
+      { text: "Getting Started", href: "#" },
+      {
+        text: "Help Center",
+        href: "#",
+      },
+      {
+        text: "Server status",
+        href: "#",
+      },
+      {
+        text: "Report a bug",
+        href: "#",
+      },
+      {
+        text: "Chat Support",
+        href: "#",
+      },
+    ],
+    companyLinks: [
+      { text: "About", href: "#" },
+      {
+        text: "Contact Us",
+        href: "#",
+      },
+      { text: "Careers", href: "#" },
+      {
+        text: "Culture",
+        href: "#",
+      },
+      { text: "Blog", href: "#" },
+    ],
+    socialLinks: [
+      { text: "Facebook", href: "#" },
+      {
+        text: "Twitter",
+        href: "#",
+      },
+      { text: "Instagram", href: "#" },
+      {
+        text: "Linkedin",
+        href: "#",
+      },
+      { text: "Youtube", href: "#" },
+    ],
+  };
   return (
     <>
-      <Stack>
+      <Stack marginTop="100px">
         <HStack
           flexDirection={["column", "row"]}
           justifyContent={["center", "space-around"]}
           bg="#FFFFFF"
           py="90px"
-          width={window.innerWidth}
           textColor="white"
           mb="-20px"
         >
@@ -40,6 +99,7 @@ function Footer({ links }) {
 
           <Box
             display="flex"
+            gap="50px"
             textAlign="left"
             order={[1, 2]}
             mb={["20px", null]}
