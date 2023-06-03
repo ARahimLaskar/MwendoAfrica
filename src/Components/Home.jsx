@@ -279,7 +279,11 @@ export default function Home() {
         <Heading m="50px" color="blue">
           Wide range of Vehicles
         </Heading>
-        <div style={{ display: "flex", gap: "50px" }}>
+        <Box
+          display="flex"
+          gap="30px"
+          flexDirection={{ sm: "column", md: "row" }}
+        >
           <div>
             <img
               style={{ borderRadius: "20px" }}
@@ -311,7 +315,7 @@ export default function Home() {
               alt=""
             />
           </div>
-        </div>
+        </Box>
         <Button
           m="30px"
           borderRadius={"25px"}
