@@ -26,6 +26,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 export default function Payment() {
   const [value, setValue] = useState("1");
+  const [paymentToggle, setPaymentToggle] = useState(false);
 
   const [userData, setUserData] = useState({
     name: "",
@@ -66,21 +67,21 @@ export default function Payment() {
       type: ADD_USER_DATA,
       payload: userData,
     });
-    console.log("userData", userData);
+    setPaymentToggle(true);
+    setTimeout(() => {
+      Swal.fire({
+        title: "Payment successful!",
+        text: "clicked the button To Check Invoice!",
+        icon: "success",
+        confirmButtonText: "Ok",
+      }).then((result) => {
+        if (result.isConfirmed) {
+          navigate("/invoice");
+        }
+      });
+    }, 5000);
   };
 
-  const handleClick = () => {
-    Swal.fire({
-      title: "Payment successful!",
-      text: "clicked the button To Check Invoice!",
-      icon: "success",
-      confirmButtonText: "Ok",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        navigate("/invoice");
-      }
-    });
-  };
   return (
     <Container
       m="50px auto"
@@ -237,15 +238,23 @@ export default function Payment() {
               />
             </GridItem>
           </Grid>
-          <Button
-            type="submit"
-            w="100%"
-            m="20px 0"
-            colorScheme="blue"
-            onClick={handleClick}
-          >
-            Proceed To Checkout
-          </Button>
+          {paymentToggle ? (
+            <Button
+              isLoading
+              loadingText="Processing......"
+              colorScheme="blue"
+              variant="outline"
+              type="submit"
+              w="100%"
+              m="20px 0"
+            >
+              Submit
+            </Button>
+          ) : (
+            <Button type="submit" w="100%" m="20px 0" colorScheme="blue">
+              Proceed To Checkout
+            </Button>
+          )}
         </FormControl>
       </form>
     </Container>
