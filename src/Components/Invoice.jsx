@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { useSelector } from "react-redux";
 import { useReactToPrint } from "react-to-print";
+import { Link } from "react-router-dom";
 import {
   FormControl,
   FormLabel,
@@ -132,7 +133,15 @@ export default function Invoice() {
           <Text textAlign="center">+91-9876543210, +91-1234567890</Text>
         </FormControl>
       </Container>
-      <Button m="30px" colorScheme="blue" onClick={downloadPDF}>
+
+      <Button
+        display="flex"
+        alignItems="center"
+        m="30px auto"
+        justifyContent="center"
+        colorScheme="blue"
+        onClick={downloadPDF}
+      >
         Print
       </Button>
     </form>

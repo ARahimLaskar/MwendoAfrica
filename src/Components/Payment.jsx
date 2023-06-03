@@ -69,16 +69,6 @@ export default function Payment() {
     console.log("userData", userData);
   };
 
-  // const handleClick = () => {
-  //   Swal.fire(
-  //     "Payment successful!",
-  //     "clicked the button To Print Invoice!",
-  //     "success"
-
-  //   );
-
-  // };
-
   const handleClick = () => {
     Swal.fire({
       title: "Payment successful!",
@@ -172,12 +162,12 @@ export default function Payment() {
               <Heading size="md" m="20px 0">
                 PAYMENT FORM
               </Heading>
-              <VStack display="flex" alignItems="flex-start" lineHeight="11px">
+              <VStack display="flex" alignItems="flex-start" lineHeight="15px">
                 <Text marginBottom="0px">Cost : {price} </Text>
                 <Text>GST : 18% </Text>
                 <Text>Total Cost : {totalCost}</Text>
               </VStack>
-              <Divider m="6px" />
+              <Divider m="8px" />
               <FormLabel>Cards Accepted</FormLabel>
               <HStack
                 display="flex"

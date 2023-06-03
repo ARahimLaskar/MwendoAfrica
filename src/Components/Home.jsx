@@ -368,7 +368,6 @@ export default function Home() {
             </Text>
           </Card>
         </div>
-        <Footer links={links} />
       </Box>
     </>
   );

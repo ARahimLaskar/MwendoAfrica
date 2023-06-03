@@ -4,7 +4,7 @@ import React from "react";
 
 export default function Pagination({ pageNo, setPageno }) {
   return (
-    <Center marginTop="20px">
+    <Center margin="50px">
       <Button
         variant="outline"
         colorScheme="blue"

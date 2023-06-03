@@ -70,7 +70,7 @@ export default function ProductDetails() {
         <Grid w="100%" templateColumns="25% 1fr" gap="5%" p="10px">
           <GridItem p="20px" boxShadow=" rgba(0, 0, 0, 0.24) 0px 3px 8px">
             <FormControl isRequired>
-              <Heading marginBottom="40px" size="30px">
+              <Heading marginBottom="10px" fontSize="24px">
                 Select Date & Time
               </Heading>
               <FormLabel>Pick up Place</FormLabel>

@@ -2,6 +2,7 @@ import {
   ADD_BOOKED_DETAILS,
   ADD_PRODUCT_DETAILS,
   ADD_USER_DATA,
+  ADD_USER_LOGIN,
   GET_PRODUCTS_FAILURE,
   GET_PRODUCTS_REQUEST,
   GET_PRODUCTS_SUCCESS,
@@ -15,6 +16,7 @@ const initialState = {
   cart: [],
   userData: {},
   bookedDetails: {},
+  isLogin: false,
 };
 
 export const reducer = (state = initialState, action) => {
@@ -57,6 +59,12 @@ export const reducer = (state = initialState, action) => {
       return {
         ...state,
         bookedDetails: action.payload,
+      };
+    }
+    case ADD_USER_LOGIN: {
+      return {
+        ...state,
+        isLogin: action.payload,
       };
     }
     default:
