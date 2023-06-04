@@ -93,7 +93,7 @@ export default function Payment() {
           <Grid templateColumns="repeat(2, 1fr)" gap="20px">
             <GridItem>
               <Heading size="md" m="20px 0">
-                BULLING ADDRESS
+                BILLING ADDRESS
               </Heading>
               <FormLabel>Full Name: </FormLabel>
               <Input
