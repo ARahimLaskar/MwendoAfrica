@@ -163,8 +163,8 @@ export default function Home() {
         {isLoading ? (
           <Grid
             templateColumns={{
-              base: "1fr 1fr",
-              md: "repeat(3, 1fr)",
+              base: "1fr",
+              md: "repeat(2, 1fr)",
               lg: "repeat(3, 1fr)",
             }}
             gap="40px"
@@ -174,8 +174,8 @@ export default function Home() {
         ) : (
           <Grid
             templateColumns={{
-              base: "1fr 1fr",
-              md: "repeat(3, 1fr)",
+              base: "1fr",
+              md: "repeat(2, 1fr)",
               lg: "repeat(3, 1fr)",
             }}
             gap="40px"
@@ -204,8 +204,8 @@ export default function Home() {
 
         <Grid
           templateColumns={{
-            base: "1fr 1fr",
-            md: "repeat(3, 1fr)",
+            base: "1fr",
+            md: "repeat(2, 1fr)",
             lg: "repeat(3, 1fr)",
           }}
           gap="40px"
@@ -230,8 +230,8 @@ export default function Home() {
 
         <Grid
           templateColumns={{
-            base: "1fr 1fr",
-            md: "repeat(3, 1fr)",
+            base: "1fr",
+            md: "repeat(2, 1fr)",
             lg: "repeat(3, 1fr)",
           }}
           gap="40px"
@@ -256,8 +256,8 @@ export default function Home() {
         </Heading>
         <Grid
           templateColumns={{
-            base: "1fr 1fr",
-            md: "repeat(3, 1fr)",
+            base: "1fr ",
+            md: "repeat(2, 1fr)",
             lg: "repeat(3, 1fr)",
           }}
           gap="40px"
@@ -282,7 +282,7 @@ export default function Home() {
         <Box
           display="flex"
           gap="30px"
-          flexDirection={{ sm: "column", md: "row" }}
+          flexDirection={{ base: "column", md: "row" }}
         >
           <div>
             <img
@@ -329,49 +329,55 @@ export default function Home() {
         <br />
         <br />
 
-        <div style={{ display: "flex", gap: "40px", margin: "50px 0" }}>
-          <Card width={"30%"} p="20px">
-            <Heading color={"blue"}>Our results in numbers</Heading>
-            <Heading>99%</Heading>
-            <Heading as="h3" size="l">
-              Customer Satisfaction
-            </Heading>
-            <Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
-              inventore voluptatum fuga soluta consequuntur obcaecati, quod
-              molestiae, sit recusandae eaque repellendus quibusdam dolores
-              animi quo asperiores iure, in blanditiis saepe!
-            </Text>
-          </Card>
+        <Box>
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            gap={{ sm: "20px", md: "40px" }}
+            m={{ sm: "20px 0", md: "50px 0" }}
+          >
+            <Card width={{ base: "100%", md: "30%" }} p="20px">
+              <Heading color={"blue"}>Our results in numbers</Heading>
+              <Heading>99%</Heading>
+              <Heading as="h3" size="l">
+                Customer Satisfaction
+              </Heading>
+              <Text>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Eveniet inventore voluptatum fuga soluta consequuntur obcaecati,
+                quod molestiae, sit recusandae eaque repellendus quibusdam
+                dolores animi quo asperiores iure, in blanditiis saepe!
+              </Text>
+            </Card>
 
-          <Card width={"30%"} p="20px">
-            <Heading color={"blue"}>Our results in numbers</Heading>
-            <Heading>99%</Heading>
-            <Heading as="h3" size="l">
-              Customer Satisfaction
-            </Heading>
-            <Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
-              inventore voluptatum fuga soluta consequuntur obcaecati, quod
-              molestiae, sit recusandae eaque repellendus quibusdam dolores
-              animi quo asperiores iure, in blanditiis saepe!
-            </Text>
-          </Card>
+            <Card width={{ sm: "100%", md: "30%" }} p="20px">
+              <Heading color={"blue"}>Our results in numbers</Heading>
+              <Heading>99%</Heading>
+              <Heading as="h3" size="l">
+                Customer Satisfaction
+              </Heading>
+              <Text>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Eveniet inventore voluptatum fuga soluta consequuntur obcaecati,
+                quod molestiae, sit recusandae eaque repellendus quibusdam
+                dolores animi quo asperiores iure, in blanditiis saepe!
+              </Text>
+            </Card>
 
-          <Card width={"30%"} p="20px">
-            <Heading color={"blue"}>Our results in numbers</Heading>
-            <Heading>99%</Heading>
-            <Heading as="h3" size="l">
-              Customer Satisfaction
-            </Heading>
-            <Text>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Eveniet
-              inventore voluptatum fuga soluta consequuntur obcaecati, quod
-              molestiae, sit recusandae eaque repellendus quibusdam dolores
-              animi quo asperiores iure, in blanditiis saepe!
-            </Text>
-          </Card>
-        </div>
+            <Card width={{ sm: "100%", md: "30%" }} p="20px">
+              <Heading color={"blue"}>Our results in numbers</Heading>
+              <Heading>99%</Heading>
+              <Heading as="h3" size="l">
+                Customer Satisfaction
+              </Heading>
+              <Text>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Eveniet inventore voluptatum fuga soluta consequuntur obcaecati,
+                quod molestiae, sit recusandae eaque repellendus quibusdam
+                dolores animi quo asperiores iure, in blanditiis saepe!
+              </Text>
+            </Card>
+          </Flex>
+        </Box>
       </Box>
     </>
   );

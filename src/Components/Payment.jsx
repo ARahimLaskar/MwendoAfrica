@@ -71,7 +71,7 @@ export default function Payment() {
     setTimeout(() => {
       Swal.fire({
         title: "Payment successful!",
-        text: "clicked the button To Check Invoice!",
+        text: "Click Ok to check invoice!",
         icon: "success",
         confirmButtonText: "Ok",
       }).then((result) => {

@@ -66,7 +66,7 @@ export default function Invoice() {
                 <Image
                   w="50px"
                   h="50px"
-                  src="https://cdn-ifdbj.nitrocdn.com/EanVDyVEHfXJDyuytyvvfsTbnRvJbEbJ/assets/images/optimized/rev-491cf53/wp-content/uploads/2023/01/Mwendo-Africa-Logo.png"
+                  src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1a/99/62/cc/caption.jpg?w=1200&h=-1&s=1"
                 />
                 <Stack display="flex" alignItems="flex-start" lineHeight="14px">
                   <Heading>INVOICE</Heading>

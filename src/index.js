@@ -15,8 +15,10 @@ root.render(
     <ChakraProvider>
       <BrowserRouter>
         <Auth0Provider
-          domain="dev-salhti3s7rbnoty7.us.auth0.com"
-          clientId="mNrW6zqt14fCPP99K8qSClMlgjk0xvMl"
+          // domain="dev-salhti3s7rbnoty7.us.auth0.com"
+          // clientId="mNrW6zqt14fCPP99K8qSClMlgjk0xvMl"
+          domain="dev-ot7oo8jkvuwz3ll7.us.auth0.com"
+          clientId="Ds09Qjxf2wcfjYwgXP9c9XxxiYNc681k"
           authorizationParams={{
             redirect_uri: window.location.origin,
           }}
