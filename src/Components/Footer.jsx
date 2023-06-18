@@ -117,43 +117,33 @@ function Footer() {
               <Divider mb={2} />
               {links.quickLinks.map((link) => (
                 <Link href={link.href} key={link.text}>
-                  <Text fontSize="14px" color="rgb(208,211,220)">
+                  <Text fontSize="14px" color="gray">
                     {link.text}
                   </Text>
                 </Link>
               ))}
             </Box>
             <Box mr={30}>
-              <Text
-                fontSize="18px"
-                fontWeight="bold"
-                mb={2}
-                color="rgb(24,20,116)"
-              >
+              <Text fontSize="18px" fontWeight="bold" mb={2} color="gray">
                 Company
               </Text>
               <Divider mb={2} />
               {links.companyLinks.map((link) => (
                 <Link href={link.href} key={link.text}>
-                  <Text fontSize="14px" color="rgb(208,211,220)">
+                  <Text fontSize="14px" color="gray">
                     {link.text}
                   </Text>
                 </Link>
               ))}
             </Box>
             <Box mr={30}>
-              <Text
-                fontSize="18px"
-                fontWeight="bold"
-                mb={2}
-                color="rgb(24,20,116)"
-              >
+              <Text fontSize="18px" fontWeight="bold" mb={2} color="gray">
                 Support
               </Text>
               <Divider mb={2} />
               {links.supportLinks.map((link) => (
                 <Link href={link.href} key={link.text}>
-                  <Text fontSize="14px" color="rgb(208,211,220)">
+                  <Text fontSize="14px" color="gray">
                     {link.text}
                   </Text>
                 </Link>
@@ -171,7 +161,7 @@ function Footer() {
               <Divider mb={2} />
               {links.socialLinks.map((link) => (
                 <Link href={link.href} key={link.text}>
-                  <Text fontSize="14px" color="rgb(208,211,220)">
+                  <Text fontSize="14px" color="gray">
                     {link.text}
                   </Text>
                 </Link>

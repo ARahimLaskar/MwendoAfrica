@@ -6,6 +6,7 @@ import Home from "./../Components/Home";
 import Payment from "./../Components/Payment";
 import Invoice from "../Components/Invoice";
 import PrivateRoute from "./PrivateRoute";
+import NoPage from "../Components/NoPage";
 
 export default function AllRoutes() {
   return (
@@ -36,6 +37,7 @@ export default function AllRoutes() {
           </PrivateRoute>
         }
       />
+      <Route path="/*" element={<NoPage />} />
     </Routes>
   );
 }
